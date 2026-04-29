@@ -5,7 +5,6 @@ from random import choice
 import config
 from sprites import Dino, Nuvens, Chao, Cacto, DinoVoador
 
-# Inicialização da tela
 tela = pygame.display.set_mode((config.largura, config.altura))
 pygame.display.set_caption('DinoRun')
 
@@ -25,7 +24,6 @@ def reiniciar_jogo():
     cacto.rect.x = config.largura
     config.escolha_obstaculo = choice([0, 1])
 
-# Instanciação dos grupos e objetos
 todas_as_sprites = pygame.sprite.Group()
 dino = Dino()
 todas_as_sprites.add(dino)
@@ -51,7 +49,6 @@ relogio = pygame.time.Clock()
 pontos = 0
 colidiu = False
 
-# Inicia o jogo
 while True:
     relogio.tick(30)
     tela.fill(config.BRANCO)
@@ -67,7 +64,6 @@ while True:
             if event.key == K_r and colidiu:
                 reiniciar_jogo()
 
-    # Lógica de Colisão
     colisoes = pygame.sprite.spritecollide(dino, grupo_obstaculos, False, pygame.sprite.collide_mask)
 
     if cacto.rect.topright[0] <= 0 or dino_voador.rect.topright[0] <= 0:
