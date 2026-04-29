@@ -3,8 +3,6 @@ import os
 from random import randrange
 from config import sprite_sheet, largura, altura, diretorio_sons
 
-# Importamos a velocidade do config, mas como ela muda, 
-# precisaremos referenciá-la dentro dos updates ou passar como parâmetro.
 import config 
 
 class Dino(pygame.sprite.Sprite):
